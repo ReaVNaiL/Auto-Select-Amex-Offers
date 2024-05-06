@@ -105,13 +105,13 @@
       } catch (e) {
         console.error(e);
       }
-    }
 
-    if (this.doneFlag) {
+      if (this.doneFlag) {
         disableButton();
         console.log("Done selecting offers!");
-    } else {
+      } else {
         inProgressButton();
+      }
     }
   }
 
