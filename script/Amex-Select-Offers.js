@@ -40,7 +40,11 @@
   }
 
   function inProgressButton() {
+    button.removeEventListener("mouseover", handleMouseOver);
+    button.removeEventListener("mouseout", handleMouseOut);
+
     button.textContent = "In Progress";
+    button.disabled = true;
   }
 
   function clickAmexOffers() {
@@ -54,7 +58,6 @@
       return;
     }
 
-    inProgressButton();
     console.log(`Found ${offerButtons.length} possible offers!`);
     console.log("Selecting offers...");
 
@@ -99,8 +102,12 @@
       }
     }
 
-    console.log("Done selecting offers!");
-    disableButton();
+    if (offerButtons.length == 0) {
+        disableButton();
+        console.log("Done selecting offers!");
+    } else {
+        inProgressButton();
+    }
   }
 
   function createAndInsertButton() {
