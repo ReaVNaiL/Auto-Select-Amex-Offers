@@ -102,7 +102,7 @@
       }
     }
 
-    if (offerButtons.length == 0) {
+    if (offerButtons.length == i) {
         disableButton();
         console.log("Done selecting offers!");
     } else {
