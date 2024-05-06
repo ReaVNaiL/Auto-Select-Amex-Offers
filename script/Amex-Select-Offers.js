@@ -67,7 +67,12 @@
     const addToCardButtonClass =
       "div.axp-offers__global__mobileWidth100___3A2Jn button.offer-cta";
 
+    let doneFlag = false;
+
     for (let i = 0; i < offerButtons.length; ++i) {
+      if (i + 1 == offerButtons.length) {
+          this.doneFlag = true;
+      }
       try {
         const offerButton = offerButtons[i];
 
@@ -93,7 +98,7 @@
           setTimeout(() => {
             addToCardButton.click();
             console.log(`Clicked "${offerName}" offer!`);
-          }, i * WAIT_TIME_MS);
+          }, WAIT_TIME_MS);
         } else {
           console.log(`Button for offer ${i} is not Add to Card, skipping...`);
         }
@@ -102,7 +107,7 @@
       }
     }
 
-    if (offerButtons.length == i) {
+    if (this.doneFlag) {
         disableButton();
         console.log("Done selecting offers!");
     } else {
@@ -112,7 +117,7 @@
 
   function createAndInsertButton() {
     button.classList.add(
-      "axp-offers__filter__filter___3yO4Q",
+      "offers-list",
       "border",
       "label-1",
       "gray-2",
